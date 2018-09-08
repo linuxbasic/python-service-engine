@@ -1,0 +1,19 @@
+version: '3'
+services:
+  test:
+    build: .
+    image: python-service-engine:local
+    command: pytest -s
+    volumes:
+       - .:/code
+  analyse:
+    build: .
+    image: python-service-engine:local
+    command: mypy examples/simple.py
+    volumes:
+       - .:/code
+  format:
+    image: jbbarth/black
+    command: service_engine
+    volumes:
+       - .:/code
