@@ -7,7 +7,7 @@ from .events import Event, SubscribeEvent, UnsubscribeEvent
 
 class BusService(Service):
     def on_init(self):
-        self.subscriptions = dict()
+        self.subscriptions = {}
 
     def on_event(self, event):
         if isinstance(event, SubscribeEvent):
